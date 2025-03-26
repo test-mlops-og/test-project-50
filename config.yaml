@@ -1,5 +1,5 @@
 region: "ca-central-1"
-role: "arn:aws:iam::820242914501:role/sm_default_exec_role_Apye"
+role: "arn:aws:iam::820242914501:role/sm_default_exec_role_1drw"
 tracking_server_arn: "arn:aws:sagemaker:ca-central-1:820242914501:mlflow-tracking-server/test-mlflow"
 default_bucket: "sagemaker-ca-central-1-820242914501"
 sagemaker_project_name: "test-project-13"
