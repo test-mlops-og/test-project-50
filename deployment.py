@@ -1,6 +1,5 @@
 import sys
 import os
-install_packages(required_packages)
 import time
 import tarfile
 import json
