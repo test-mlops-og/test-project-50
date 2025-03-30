@@ -9,7 +9,7 @@ def install_packages(packages):
         subprocess.check_call([sys.executable, "-m", "pip", "install", package])
 
 required_packages = [
-"sagemaker==2.229.0",
+"sagemaker",
 "mlflow==2.16.0",
 "sagemaker-mlflow==0.1.0"
 ]
