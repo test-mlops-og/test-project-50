@@ -1,5 +1,20 @@
 import sys
 import os
+
+def install_packages(packages):
+    """
+    Installs the given list of packages using pip.
+    """
+    for package in packages:
+        subprocess.check_call([sys.executable, "-m", "pip", "install", package])
+
+required_packages = [
+"sagemaker==2.240.0",
+"mlflow==2.16.0",
+"sagemaker-mlflow==0.1.0"
+]
+
+install_packages(required_packages)
 import time
 import tarfile
 import json
