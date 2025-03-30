@@ -5,9 +5,9 @@ def install_packages(packages):
     """
     Installs the given list of packages using pip.
     """
-    subprocess.check_call([sys.executable, "-m", "pip", "install", "--upgrade", "pip"])
+    subprocess.check_call([sys.executable, "-m", "pip", "install", "--upgrade", "pip", "--user"])
     for package in packages:
-        subprocess.check_call([sys.executable, "-m", "pip", "install", package])
+        subprocess.check_call([sys.executable, "-m", "pip", "install", package, "--user"])
 
 required_packages = [
 "sagemaker",
