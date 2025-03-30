@@ -6,6 +6,7 @@ sagemaker_project_name: "test-project-13"
 model_package_group_name: "AbalonePackageGroup"
 pipeline_name: "AbalonePipeline"
 base_job_prefix: "Abalone"
+train_data_path: "s3://sagemaker-servicecatalog-seedcode-ca-central-1/dataset/abalone-dataset.csv"
 processing_instance_type: "ml.m5.xlarge"
 training_instance_type: "ml.m5.xlarge"
 experiment_name: "Abalone-pipelines-experiment"
@@ -47,7 +48,15 @@ hyperparameters:
     max: 1.0
     scaling_type: "Linear"
 deployment:
-    instance_type: "ml.m5.xlarge"  
-    environments:
-      - dev
-      - prod
+  instance_type: "ml.m5.xlarge"  
+  environments:
+    - prd
+  mode: "shadow-variant"
+  variant_weights: [0.6, 0.4]
+monitoring:
+  enabled: true
+  # Use the training data as the baseline data for monitoring
+  baseline_data_path: "s3://sagemaker-ca-central-1-820242914501/AbalonePipeline/znczwlse3yoc/AbalonePreprocessData/output/train/train.csv"
+  output_bucket: "sagemaker-ca-central-1-820242914501"
+  # Schedule expression for the monitoring job (daily at 12 UTC)
+  schedule_expression: "cron(0 12 * * ? *)"
